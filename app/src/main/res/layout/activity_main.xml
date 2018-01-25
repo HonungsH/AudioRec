@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hanne.myapplication.MainActivity">
+
+    <TextView
+        android:id="@+id/display_db"
+        android:layout_width="206dp"
+        android:layout_height="73dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:textSize="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.118" />
+
+    <ImageButton
+        android:id="@+id/stop"
+        android:layout_width="83dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="160dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+
+        android:background="#00000000"
+        android:src="@drawable/stop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toEndOf="@+id/record"
+        app:layout_constraintTop_toBottomOf="@+id/display_db"
+        app:layout_constraintVertical_bias="0.935"
+        app:srcCompat="@drawable/stop" />
+
+    <ImageButton
+        android:id="@+id/record"
+        android:layout_width="154dp"
+        android:layout_height="135dp"
+        android:layout_marginBottom="140dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:background="#00000000"
+        android:src="@drawable/play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/display_db"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/play" />
+
+</android.support.constraint.ConstraintLayout>
