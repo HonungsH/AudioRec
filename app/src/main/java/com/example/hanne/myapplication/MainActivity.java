@@ -1,5 +1,6 @@
 package com.example.hanne.myapplication;
 
+import android.content.Intent;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
@@ -19,7 +20,7 @@ import static java.lang.Math.log10;
 public class MainActivity extends AppCompatActivity {
     private boolean recording_ = false;
     private MediaRecorder recorder_ = null;
-    private final String DEBUG = "DEBUG";
+    public static final String DEBUG = "DEBUG";
     Thread displayThread;
     TextView display;
 
@@ -28,12 +29,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+        MainActivity.this.startActivity(intent);
+
         Log.e(DEBUG, "Creating watchingButton");
-        ImageButton but = findViewById(R.id.stop);
-        but.setOnClickListener(new View.OnClickListener() {
+        ImageButton stopbut = findViewById(R.id.stop);
+        stopbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                recording_ = true;
+                //recording_ = true;
                 audioActivation();
                 display.setText("");
 
@@ -43,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
         rec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (recording_)
+                    return;
+
                 audioActivation();
             }
         });
