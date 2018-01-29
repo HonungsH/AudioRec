@@ -227,8 +227,11 @@ public class Main2Activity extends AppCompatActivity {
                         (500 * blockSize) / 44100 = i
                      */
 
-                    long start = Math.round((900 * blockSize) / (double)44100);
-                    long stop  = Math.round((1100 * blockSize) / (double)44100);
+                    //long start = Math.round((18900 * blockSize) / (double)44100);
+                    //long stop  = Math.round((19100 * blockSize) / (double)44100);
+
+                    long start = 0;
+                    long stop = (magns.length - 1) / 2;
 
                     double totalMagnitude = 0.0;
                     double maxMagnitude = 0.0f;
@@ -249,7 +252,7 @@ public class Main2Activity extends AppCompatActivity {
                     //if (true)
                     //    break;
 
-                    if (sampling > 50)
+                    if (sampling > 20)
                         Log.e(MainActivity.DEBUG, "Frequency: " + actualFrequency + " with magnitude: " + maxMagnitude + " and total magnitude of: " + totalMagnitude);
 
                     for (int i = 0; i < re.length; i++) {
@@ -306,9 +309,9 @@ public class Main2Activity extends AppCompatActivity {
 
                     //Log.e(DEBUG, "Entered displayDecibel");
 
-                    double dbFFT = MAX_REPORTABLE_DB + 20 * Math.log10(totalMagnitude);
+                    double dbFFT = MAX_REPORTABLE_DB + 20 * Math.log10(maxMagnitude);
 
-                    if (sampling > 50)
+                    if (sampling > 20)
                         Log.e(MainActivity.DEBUG, "DB: " + dbFFT);
 
                     dbamplitude = (float) (MAX_REPORTABLE_DB + (20 * Math.log10(sum / MAX_REPORTABLE_AMP)));
@@ -328,7 +331,7 @@ public class Main2Activity extends AppCompatActivity {
                     //Log.e(DEBUG, "Magnitude: " + totalMagnitude);
                     //Log.e(DEBUG, "Frequency: " + actualFrequency + " with magnitude: " + maxMagnitude);
 
-                    if (sampling > 50) {
+                    if (sampling > 20) {
 
                         //Log.e("pitch and magnitude", "" + MaxMagn + "   " + pitch * 15.625f);
                         //Log.e(MainActivity.DEBUG, "freq: " + (pitch * frequency / blockSize));
